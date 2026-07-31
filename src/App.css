@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  background: conic-gradient(
+    rgb(221, 172, 230),
+    rgb(243, 190, 140),
+    rgb(192, 192, 247),
+    rgb(221, 172, 230)
+  );
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+h1 {
+  color: #1d1d1d;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
+}
+h2 {
+  color: #7d7d7d;
+  justify-content: center;
+  display: flex;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 5px;
+}
+.formulario form {
+  background: #e0e0e0;
+  border-radius: 18px;
+  padding: 30px;
+  gap: 5px 50px;
+  grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.25);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.grupo {
+  display: flex;
+  flex-direction: column;
+}
+.grupo input::placeholder {
+  color: rgb(185, 178, 178);
+  font-size: 16px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.grupo input,
+.grupo select {
+  width: 480px;
+  height: 40px;
+  padding: 0 10px;
+  margin: 10px;
+  border: 1px solid #b7d7ee;
+  border-radius: 8px;
+  background-color: white;
+  color: #000;
+  font-size: 16px;
+}
+.grupo label {
+  color: #464646;
+}
+
+button {
+  grid-column: 1 / 3;
+}
+
+button[type="submit"] {
+  width: 25%;
+  height: 40px;
+  background-color: #ba8af0;
+  color: #000000;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: lighter;
+  margin: 20px auto;
+}
+
+button[type="button"] {
+  width: 25%;
+  height: 40px;
+  background-color: #ba8af0;
+  color: #000000;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: lighter;
+  margin: 20px auto;
+}
+
+.grupo select {
+  width: 480px;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid #b7d7ee;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: white;
+  cursor: pointer;
+  color: #000000;
+  margin: 10px;
+  display: flex;
+}
