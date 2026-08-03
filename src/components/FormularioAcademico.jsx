@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function FormularioAcademico({ siguiente, anterior }) {
+function FormularioAcademico({ persona, setPersona, siguiente, anterior }) {
 
   const continuar = (e) => {
     e.preventDefault();
@@ -20,10 +20,14 @@ function FormularioAcademico({ siguiente, anterior }) {
 
         <div className="grupo">
           <label>Nivel de Formación</label>
-          <select>
-            <option>Técnico</option>
-            <option>Tecnólogo</option>
-            <option>Profesional</option>
+          <select
+            value={persona.nivel}
+            onChange={(e) => setPersona({...persona, nivel: e.target.value})}
+          >
+            <option value="">Seleccione</option>
+            <option value="Técnico">Técnico</option>
+            <option value="Tecnólogo">Tecnólogo</option>
+            <option value="Profesional">Profesional</option>
           </select>
         </div>
 
@@ -32,6 +36,8 @@ function FormularioAcademico({ siguiente, anterior }) {
           <input
             type="text"
             placeholder="Ingrese el título"
+            value={persona.titulo}
+            onChange={(e) => setPersona({...persona,titulo: e.target.value})}
           />
         </div>
 
@@ -40,6 +46,8 @@ function FormularioAcademico({ siguiente, anterior }) {
           <input
             type="text"
             placeholder="Ingrese los cursos"
+            value={persona.cursos}
+            onChange={(e) => setPersona({...persona, cursos: e.target.value})}
           />
         </div>
 
@@ -48,6 +56,8 @@ function FormularioAcademico({ siguiente, anterior }) {
           <input
             type="text"
             placeholder="Ingrese la institución"
+            value={persona.institucion}
+            onChange={(e) => setPersona({...persona, institucion: e.target.value})}
           />
         </div>
 
@@ -56,6 +66,8 @@ function FormularioAcademico({ siguiente, anterior }) {
           <input
             type="number"
             placeholder="Ejemplo: 2026"
+            value={persona.anio}
+            onChange={(e) => setPersona({...persona, anio: e.target.value})}
           />
         </div>
 
