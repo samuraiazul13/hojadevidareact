@@ -5,6 +5,7 @@ import FormularioDatos from "./components/FormularioDatos.jsx";
 import Footer from "./components/Footer.jsx";
 import FormularioAcademico from "./components/FormularioAcademico.jsx";
 import FormularioExperiencia from "./components/FormularioExperiencia.jsx";
+import VistaPrevia from "./components/VistaPrevia.jsx";
 import "./App.css";
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
     institucion: "",
     titulo: "",
     anio: "",
-    cursos: "",
+    cursos: [],
 
     //experiencia
 
@@ -69,6 +70,14 @@ function App() {
           persona={persona}
           setPersona={setPersona}
           anterior={() => setPaso(2)}
+          vistaprevia={() => setPaso(4)}
+        />
+      )}
+
+      {paso === 4 && (
+        <VistaPrevia
+        persona={persona}
+        anterior={() => setPaso(3)}
         />
       )}
 

@@ -21,9 +21,10 @@ function FormularioDatos({ persona, setPersona, siguiente }) {
           <input
             type="file"
             accept="image/*"
-            onChange={(e) => setPersona({...persona, foto: e.target.files[0]
+            onChange={(e) => setPersona({
+              ...persona, foto: e.target.files[0]
             })
-          }
+            }
           />
         </div>
 
@@ -33,7 +34,7 @@ function FormularioDatos({ persona, setPersona, siguiente }) {
             type="text"
             placeholder="Ingrese su nombre"
             value={persona.nombre}
-            onChange={(e) => setPersona({...persona, nombre: e.target.value})}
+            onChange={(e) => setPersona({ ...persona, nombre: e.target.value })}
           />
         </div>
 
@@ -43,7 +44,7 @@ function FormularioDatos({ persona, setPersona, siguiente }) {
             type="number"
             placeholder="Ingrese su edad"
             value={persona.edad}
-            onChange={(e) => setPersona({...persona, edad: e.target.value})}
+            onChange={(e) => setPersona({ ...persona, edad: e.target.value })}
           />
         </div>
 
@@ -53,7 +54,7 @@ function FormularioDatos({ persona, setPersona, siguiente }) {
             type="text"
             placeholder="Ingrese su ciudad"
             value={persona.ciudad}
-            onChange={(e) => setPersona({...persona, ciudad: e.target.value})}
+            onChange={(e) => setPersona({ ...persona, ciudad: e.target.value })}
           />
         </div>
 
@@ -63,7 +64,7 @@ function FormularioDatos({ persona, setPersona, siguiente }) {
             type="text"
             placeholder="Ejemplo: ADSO"
             value={persona.programa}
-            onChange={(e) => setPersona({...persona, programa: e.target.value})}
+            onChange={(e) => setPersona({ ...persona, programa: e.target.value })}
           />
         </div>
 
@@ -73,7 +74,7 @@ function FormularioDatos({ persona, setPersona, siguiente }) {
             type="email"
             placeholder="correo@sena.edu.co"
             value={persona.correo}
-            onChange={(e) => setPersona({...persona, correo: e.target.value})}
+            onChange={(e) => setPersona({ ...persona, correo: e.target.value })}
           />
         </div>
 
@@ -83,14 +84,14 @@ function FormularioDatos({ persona, setPersona, siguiente }) {
             type="number"
             placeholder="Ingrese la ficha"
             value={persona.ficha}
-            onChange={(e) => setPersona({...persona, ficha: e.target.value})}
+            onChange={(e) => setPersona({ ...persona, ficha: e.target.value })}
           />
         </div>
 
         <div className="grupo">
           <label>Jornada</label>
 
-          <select value={persona.jornada} onChange={(e) => setPersona({...persona, jornada: e.target.value})}>
+          <select value={persona.jornada} onChange={(e) => setPersona({ ...persona, jornada: e.target.value })}>
             <option value="">Seleccione una jornada</option>
             <option value="Mañana">Mañana</option>
             <option value="Tarde">Tarde</option>
@@ -99,7 +100,9 @@ function FormularioDatos({ persona, setPersona, siguiente }) {
           </select>
         </div>
 
-        <button type="submit">Continuar Registro</button>
+        <div className="botones">
+          <button type="submit">Continuar Registro</button>
+        </div>
       </form>
     </div>
   );
