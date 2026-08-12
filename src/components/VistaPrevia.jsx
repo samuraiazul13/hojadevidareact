@@ -1,59 +1,216 @@
-import { useState } from "react";
-
 function VistaPrevia({ persona, anterior }) {
 
-    return (
+  return (
+    <div className="formulario-1">
 
-        <div className="formulario-1">
-            <h2>Vista Previa de la Hoja de Vida</h2>
+      <h2>Vista Previa de la Hoja de Vida</h2>
 
-            <div className="vista-previa">
+      <div className="vista-previa">
 
-                <h3>Datos Personales</h3>
 
-                {persona.foto && (
-                    <img src={URL.createObjectURL(persona.foto)} alt="Foto"
-                        className="foto"
-                    />
-                )}
+        <div className="vista-izquierda">
 
-                <div className="datos">
-                    <p><strong>Nombre:</strong> {persona.nombre}</p>
-                    <p><strong>Edad:</strong> {persona.edad}</p>
-                    <p><strong>Ciudad:</strong> {persona.ciudad}</p>
-                    <p><strong>Correo:</strong> {persona.correo}</p>
-                    <p><strong>Programa de formación:</strong> {persona.programa}</p>
-                    <p><strong>Ficha:</strong> {persona.ficha}</p>
-                    <p><strong>Jornada:</strong> {persona.jornada}</p>
-                </div>
+          {persona.foto && (
+            <img
+              src={URL.createObjectURL(persona.foto)}
+              alt="Foto"
+              className="foto"
+            />
+          )}
 
-                <h3>Información Académica</h3>
+          <h3>Datos Personales</h3>
 
-                <div className="datos">
-                    <p><strong>Nivel de Formación:</strong> {persona.nivel}</p>
-                    <p><strong>Título Obtenido:</strong> {persona.titulo}</p>
-                    <p><strong>Cursos Realizados:</strong> {persona.cursos}</p>
-                    <p><strong>Institución Educativa:</strong> {persona.institucion}</p>
-                </div>
+          <div className="datos">
 
-                <h3>Experiencia</h3>
+            <p>
+              <strong>Nombre:</strong>
+              <span>{persona.nombre}</span>
+            </p>
 
-                <div className="datos">
-                    <p><strong>Empresa:</strong> {persona.empresa}</p>
-                    <p><strong>Cargo:</strong> {persona.cargo}</p>
-                    <p><strong>Tiempo de Experiencia:</strong> {persona.tiempo}</p>
-                    <p><strong>Funciones:</strong> {persona.funciones}</p>
-                    <p><strong>Habilidades Técnicas:</strong> {persona.habilidades}</p>
-                </div>
+            <p>
+              <strong>Edad:</strong>
+              <span>{persona.edad}</span>
+            </p>
 
-                <div className="botones">
-                    <button type="button" onClick={anterior}>
-                        Anterior
-                    </button>
-                </div>
-            </div>
+            <p>
+              <strong>Ciudad:</strong>
+              <span>{persona.ciudad}</span>
+            </p>
+
+            <p>
+              <strong>Correo:</strong>
+              <span>{persona.correo}</span>
+            </p>
+
+            <p>
+              <strong>Programa de formación:</strong>
+              <span>{persona.programa}</span>
+            </p>
+
+            <p>
+              <strong>Ficha:</strong>
+              <span>{persona.ficha}</span>
+            </p>
+
+            <p>
+              <strong>Jornada:</strong>
+              <span>{persona.jornada}</span>
+            </p>
+
+          </div>
+
         </div>
-    );
+
+        <div className="vista-derecha">
+
+          <section className="vista-seccion">
+
+            <h3>Información Académica</h3>
+
+            <div className="datos">
+
+              <p>
+                <strong>Nivel de Formación:</strong>
+                <span>{persona.nivel}</span>
+              </p>
+
+              <p>
+                <strong>Título Obtenido:</strong>
+                <span>{persona.titulo}</span>
+              </p>
+
+              <p>
+                <strong>Institución Educativa:</strong>
+                <span>{persona.institucion}</span>
+              </p>
+
+              <p>
+                <strong>Cursos Realizados:</strong>
+                <span>{persona.cursos}</span>
+              </p>
+
+            </div>
+
+          </section>
+
+
+          <section className="vista-seccion">
+
+            <h3>Experiencia Laboral</h3>
+
+            {persona.experiencias &&
+            persona.experiencias.length > 0 ? (
+
+              persona.experiencias.map((experiencia, indice) => (
+
+                <div
+                  className="vista-experiencia"
+                  key={indice}
+                >
+
+                  <h4>
+                    {experiencia.empresa}
+                  </h4>
+
+
+                  <p>
+                    <strong>Cargo:</strong>{" "}
+                    {experiencia.cargo}
+                  </p>
+
+
+                  <p>
+                    <strong>Tiempo:</strong>{" "}
+                    {experiencia.tiempo}
+                  </p>
+
+                  {experiencia.funciones &&
+                  experiencia.funciones.length > 0 && (
+
+                    <div>
+
+                      <strong>
+                        Funciones:
+                      </strong>
+
+                      <ul className="vista-lista">
+
+                        {experiencia.funciones.map(
+                          (funcion, i) => (
+
+                            <li key={i}>
+                              {funcion}
+                            </li>
+
+                          )
+                        )}
+
+                      </ul>
+
+                    </div>
+
+                  )}
+
+
+                  {experiencia.habilidades &&
+                  experiencia.habilidades.length > 0 && (
+
+                    <div>
+
+                      <strong>
+                        Habilidades Técnicas:
+                      </strong>
+
+                      <ul className="vista-lista">
+
+                        {experiencia.habilidades.map(
+                          (habilidad, i) => (
+
+                            <li key={i}>
+                              {habilidad}
+                            </li>
+
+                          )
+                        )}
+
+                      </ul>
+
+                    </div>
+
+                  )}
+
+                </div>
+
+              ))
+
+            ) : (
+
+              <p>
+                No se han registrado experiencias laborales.
+              </p>
+
+            )}
+
+          </section>
+
+          <div className="botones">
+
+            <button
+              type="button"
+              onClick={anterior}
+            >
+              Anterior
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  );
 }
+
 
 export default VistaPrevia;

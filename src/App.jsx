@@ -39,8 +39,9 @@ function App() {
     empresa: "",
     cargo: "",
     tiempo: "",
-    funciones: "",
-    habilidades: "",
+    funciones: [],
+    habilidades: [],
+    experiencia: [],
   });
 
   return (
