@@ -120,7 +120,8 @@ h2 {
   gap: 10px;
   margin-top: 10px;
 }
-.curso-item {
+.curso-item,
+.curso {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -133,12 +134,14 @@ h2 {
   min-width: 220px;
   flex: 1;
 }
-.curso-item span {
+.curso-item span,
+.curso span {
   color: #333;
   font-size: 14px;
   word-break: break-word;
 }
-.curso-item button {
+.curso-item button,
+.curso button {
   background-color: #e8d7f7;
   color: #333;
   border: none;
@@ -147,7 +150,8 @@ h2 {
   cursor: pointer;
   font-size: 13px;
 }
-.curso-item button:hover {
+.curso-item button:hover,
+.curso button:hover {
   background-color: #d7b9ed;
 }
 .boton-agregar-experiencia {
@@ -234,8 +238,8 @@ button {
   cursor: pointer;
 }
 .formulario-1 {
-  width: 900px;
-  max-width: 90%;
+  width: 1050px;
+  max-width: 92%;
   margin: 20px auto;
   padding: 0;
   background: transparent;
@@ -254,17 +258,20 @@ button {
   padding: 30px 35px;
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 35px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.20);
+  grid-template-columns: 40% 60%;
+  gap: 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 .vista-izquierda {
   border-right: 1px solid #dddddd;
   padding-right: 30px;
   text-align: left;
+  box-sizing: border-box;
 }
 .vista-derecha {
-  padding-left: 0;
+  padding-left: 30px;
+  box-sizing: border-box;
+  min-width: 0;
 }
 .vista-previa h3 {
   color: #9c75bd;
@@ -297,14 +304,55 @@ button {
 .datos span {
   color: #555;
   font-weight: normal;
+  word-break: break-word;
 }
 .vista-seccion {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
+}
+.vista-previa .vista-seccion > h3 {
+  text-align: center;
+}
+.vista-experiencia {
+  background-color: #f8f8f8;
+  border-left: 4px solid #ba8af0;
+  border-radius: 10px;
+  padding: 15px 18px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+.vista-experiencia h4 {
+  color: #9c75bd;
+  font-size: 17px;
+  text-align: left;
+  margin: 0 0 10px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #eadcf5;
+}
+.vista-experiencia p {
+  margin: 7px 0;
+  color: #444;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.vista-experiencia strong {
+  color: #333;
+}
+.vista-lista {
+  margin: 6px 0 12px;
+  padding-left: 22px;
+}
+.vista-lista li {
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
 }
 .vista-previa .botones {
   display: flex;
   justify-content: flex-end;
-  margin-top: 20px;
+  align-items: center;
+  margin-top: 15px;
 }
 .vista-previa .botones button {
   width: 120px;
@@ -318,22 +366,6 @@ button {
 }
 .vista-previa .botones button:hover {
   background-color: #a66bdc;
-}
-.vista-previa .experiencia-item {
-  margin-bottom: 12px;
-}
-.vista-previa .experiencia-item ul {
-  margin: 5px 0 12px 20px;
-  padding: 0;
-}
-.vista-previa .experiencia-item li {
-  margin-bottom: 4px;
-  font-size: 14px;
-  color: #444;
-}
-.vista-previa .experiencia-item h4 {
-  color: #9c75bd;
-  margin: 12px 0 5px;
 }
 footer {
   color: #454444;
@@ -368,6 +400,10 @@ footer {
     padding-right: 0;
     padding-bottom: 25px;
   }
+  .vista-derecha {
+    padding-left: 0;
+    padding-top: 25px;
+  }
   .curso-agregar {
     flex-direction: column;
   }
@@ -382,5 +418,8 @@ footer {
   }
   .botones button {
     width: 45%;
+  }
+  .datos p {
+    grid-template-columns: 120px 1fr;
   }
 }
