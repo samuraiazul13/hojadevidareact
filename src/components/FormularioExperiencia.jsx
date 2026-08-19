@@ -46,7 +46,7 @@ function FormularioExperiencia({
   const agregarFuncion = () => {
 
     if (nuevaFuncion.trim() === "") {
-      alert("Ingrese una función");
+      alert("Ingrese al menos una función");
       return;
     }
 
@@ -129,6 +129,11 @@ function FormularioExperiencia({
   const continuar = (e) => {
 
     e.preventDefault();
+
+    if (persona.experiencias.length === 0) {
+      alert("Ingrese almenos una experiencia");
+      return;
+    }
 
     if (vistaprevia) {
       vistaprevia();
@@ -309,6 +314,17 @@ function FormularioExperiencia({
 
         </div>
 
+
+        <div className="boton-agregar-experiencia">
+
+          <button
+            type="button"
+            onClick={agregarExperiencia}
+          >
+            Agregar la experiencia
+          </button>
+
+        </div>
 
         <div className="boton-agregar-experiencia">
 

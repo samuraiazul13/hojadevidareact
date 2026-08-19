@@ -4,10 +4,6 @@ function FormularioAcademico({ persona, setPersona, siguiente, anterior }) {
   const [Nuevocurso, setNuevocurso] = useState("");
 
   const agregarCurso = () => {
-    if (Nuevocurso.trim() === "") {
-      alert("Ingrese el nombre del curso");
-      return;
-    }
 
     setPersona({
       ...persona,
@@ -19,7 +15,7 @@ function FormularioAcademico({ persona, setPersona, siguiente, anterior }) {
 
   const eliminarCurso = (indice) => {
     const cursosActualizados = (persona.cursos || []).filter(
-      (_, i) => i !== indice
+      (_, i) => i !== indice,
     );
 
     setPersona({
@@ -31,7 +27,34 @@ function FormularioAcademico({ persona, setPersona, siguiente, anterior }) {
   const continuar = (e) => {
     e.preventDefault();
 
-    alert("Información académica guardada");
+    if (persona.nivel.trim() === "") {
+      alert("Seleccione el nivel");
+
+      return;
+    }
+
+    if (persona.titulo.trim() === "") {
+      alert("Ingrese el titulo obtenido");
+
+      return;
+    }
+
+    if (persona.cursos.length === 0) {
+      alert("Ingrese el nombre del curso");
+      return;
+    }
+
+    if (persona.institucion.trim() === "") {
+      alert("Ingrese la institución");
+
+      return;
+    }
+
+    if (persona.anio.trim() === "") {
+      alert("Ingrese el año de graduación");
+
+      return;
+    }
 
     if (siguiente) {
       siguiente();
@@ -89,26 +112,17 @@ function FormularioAcademico({ persona, setPersona, siguiente, anterior }) {
               onChange={(e) => setNuevocurso(e.target.value)}
             />
 
-            <button
-              type="button"
-              onClick={agregarCurso}
-            >
+            <button type="button" onClick={agregarCurso}>
               + Agregar
             </button>
           </div>
 
           <div className="lista-cursos">
             {(persona.cursos || []).map((curso, indice) => (
-              <div
-                className="curso-item"
-                key={indice}
-              >
+              <div className="curso-item" key={indice}>
                 <span>{curso}</span>
 
-                <button
-                  type="button"
-                  onClick={() => eliminarCurso(indice)}
-                >
+                <button type="button" onClick={() => eliminarCurso(indice)}>
                   Eliminar
                 </button>
               </div>
@@ -149,16 +163,11 @@ function FormularioAcademico({ persona, setPersona, siguiente, anterior }) {
         </div>
 
         <div className="botones">
-          <button
-            type="button"
-            onClick={anterior}
-          >
+          <button type="button" onClick={anterior}>
             Anterior
           </button>
 
-          <button type="submit">
-            Siguiente
-          </button>
+          <button type="submit">Siguiente</button>
         </div>
       </form>
     </div>

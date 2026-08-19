@@ -4,7 +4,58 @@ function FormularioDatos({ persona, setPersona, siguiente }) {
   const continuar = (e) => {
     e.preventDefault();
 
-    alert("Los datos fueron ingresados correctamente");
+    if (persona.nombre.trim() === "") {
+      alert("Ingresar nombre completo");
+
+      return;
+    }
+
+    if (persona.edad.trim() === "") {
+      alert("Ingresar la edad");
+
+      return;
+    }
+
+    const edad = Number(persona.edad);
+    if (edad < 1 || edad > 100) {
+      alert("La edad no es valida debe estar entre 1 y 100");
+      return;
+    }
+
+    if (persona.ciudad.trim() === "") {
+      alert("Ingresar la ciudad");
+
+      return;
+    }
+
+    if (persona.correo.trim() === "") {
+      alert("Ingresar correo electronico");
+      return;
+    }
+
+    const excorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!excorreo.test(persona.correo.trim())) {
+      alert("Ingresar un correo electronico valido");
+      return;
+    }
+
+    if (persona.programa.trim() === "") {
+      alert("Ingresar nombre del programa");
+
+      return;
+    }
+
+    if (persona.ficha.trim() === "") {
+      alert("Ingresar la ficha");
+
+      return;
+    }
+
+    if (persona.jornada.trim() === "") {
+      alert("Seleccione la jornada");
+
+      return;
+    }
 
     if (siguiente) {
       siguiente();
@@ -21,9 +72,11 @@ function FormularioDatos({ persona, setPersona, siguiente }) {
           <input
             type="file"
             accept="image/*"
-            onChange={(e) => setPersona({
-              ...persona, foto: e.target.files[0]
-            })
+            onChange={(e) =>
+              setPersona({
+                ...persona,
+                foto: e.target.files[0],
+              })
             }
           />
         </div>
@@ -64,7 +117,9 @@ function FormularioDatos({ persona, setPersona, siguiente }) {
             type="text"
             placeholder="Ejemplo: ADSO"
             value={persona.programa}
-            onChange={(e) => setPersona({ ...persona, programa: e.target.value })}
+            onChange={(e) =>
+              setPersona({ ...persona, programa: e.target.value })
+            }
           />
         </div>
 
@@ -91,7 +146,12 @@ function FormularioDatos({ persona, setPersona, siguiente }) {
         <div className="grupo">
           <label>Jornada</label>
 
-          <select value={persona.jornada} onChange={(e) => setPersona({ ...persona, jornada: e.target.value })}>
+          <select
+            value={persona.jornada}
+            onChange={(e) =>
+              setPersona({ ...persona, jornada: e.target.value })
+            }
+          >
             <option value="">Seleccione una jornada</option>
             <option value="Mañana">Mañana</option>
             <option value="Tarde">Tarde</option>

@@ -155,24 +155,22 @@ h2 {
   background-color: #d7b9ed;
 }
 .boton-agregar-experiencia {
-  grid-column: 1 / 3;
-  display: flex;
   justify-content: center;
   margin-top: 5px;
 }
+
 .boton-agregar-experiencia button {
-  width: 230px;
-  height: 42px;
-  background-color: #ba8af0;
-  color: #000;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 15px;
+  grid-column: 1 / 3;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 10px;
 }
+
 .boton-agregar-experiencia button:hover {
   background-color: #a66bdc;
 }
+
 .lista-experiencias {
   grid-column: 1 / 3;
   display: grid;
@@ -237,6 +235,7 @@ button {
   border-radius: 8px;
   cursor: pointer;
 }
+
 .formulario-1 {
   width: 1050px;
   max-width: 92%;
